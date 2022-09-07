@@ -3,6 +3,8 @@ using MVCRestAPI.Models;
 using MVCRestAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using MVCRestAPI.Data;
+using AutoMapper;
+using MVCRestAPI.DTOs;
 
 namespace MVCRestAPI.Controllers
 {
@@ -11,22 +13,24 @@ namespace MVCRestAPI.Controllers
     public class ArticleController : ControllerBase
     {
         private readonly IArticleAPIRepo _repo;
+        private readonly IMapper _mapper;
 
-        public ArticleController(IArticleAPIRepo repo)
+        public ArticleController(IArticleAPIRepo repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Article>> GetArticles()
+        public ActionResult<IEnumerable<ArticleReadDTO>> GetArticles()
         {
             var articles = _repo.GetAllArticles();
 
-            return Ok(articles);
+            return Ok(_mapper.Map<IEnumerable<ArticleReadDTO>>(articles));
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Article> GetCommand(int id)
+        public ActionResult<ArticleReadDTO> GetCommand(int id)
         {
             var commandItem = _repo.GetArticleById(id);
 
@@ -35,7 +39,7 @@ namespace MVCRestAPI.Controllers
                 return NotFound();
             }
 
-            return commandItem;
+            return Ok(_mapper.Map<ArticleReadDTO>(commandItem));
         }
        
     }
