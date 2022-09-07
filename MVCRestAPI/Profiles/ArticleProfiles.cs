@@ -10,6 +10,9 @@ namespace MVCRestAPI.Profiles
         public ArticleProfiles()
         {
             CreateMap<Article, ArticleReadDTO>();
+            CreateMap<ArticleCreateDTO, Article>();
+            CreateMap<ArticleUpdateDTO, Article>();
+            CreateMap<Article, ArticleUpdateDTO>();
         }
     }
 }

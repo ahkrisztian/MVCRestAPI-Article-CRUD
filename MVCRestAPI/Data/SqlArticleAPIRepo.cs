@@ -14,12 +14,23 @@ namespace MVCRestAPI.Data
 
         public void CreateArticle(Article article)
         {
-            throw new NotImplementedException();
+            if(article == null)
+            {
+                throw new ArgumentNullException(nameof(article));
+            }
+            _context.Articles.Add(article);
+            _context.SaveChanges();
         }
 
         public void DeleteArticle(Article article)
         {
-            throw new NotImplementedException();
+            if (article == null)
+            {
+                throw new ArgumentException(nameof(article));
+            }
+
+            _context.Articles.Remove(article);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Article> GetAllArticles()
@@ -32,14 +43,10 @@ namespace MVCRestAPI.Data
             return _context.Articles.FirstOrDefault(a => a.Id == id);
         }
 
-        public bool SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
 
         public void UpdateArticle(Article article)
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
     }
 }
