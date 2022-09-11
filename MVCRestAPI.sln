@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCRestAPI", "MVCRestAPI\MVCRestAPI.csproj", "{4BFC94B3-4B49-4DF5-869E-F557424BA36A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCRestApiTest", "MVCRestApiTest\MVCRestApiTest.csproj", "{7AB9F1C0-E411-4A6B-A884-AD6EEF44A013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCRestApiTest", "MVCRestApiTest\MVCRestApiTest.csproj", "{7AB9F1C0-E411-4A6B-A884-AD6EEF44A013}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
